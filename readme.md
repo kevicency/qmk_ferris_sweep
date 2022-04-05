@@ -11,3 +11,6 @@ http://www.keyboard-layout-editor.com/#/gists/e199e464669c96167b54b0714adce2cc)
 * Home row mods in red (also holds)
 
 ![layout](./layout.png)
+
+## Key combo generator
+> [Link](https://codepen.io/mvaneijgen/full/LYEVQXp)
