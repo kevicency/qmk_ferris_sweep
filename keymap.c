@@ -20,7 +20,8 @@ enum tap_dance_codes {
   DANCE_LAYERS,
   DANCE_LAYERS2,
   DANCE_ACCEL,
-  DANCE_CUT_COPY
+  DANCE_CUT_COPY,
+  DANCE_RESET   
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -32,23 +33,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [1] = LAYOUT(
-    KC_ESCAPE,/*| */ KC_AT,/*  | */ KC_HASH,/*| */ TD(DANCE_31),/* | */ KC_PERC,/*| */ KC_CIRC,/*         | */ KC_AMPR,/*| */ KC_ASTR,/*         | */ KC_UNDS,/* | */ KC_BSPC,/* | */
-    KC_TAB,/*   | */ KC_LCBR,/*| */ KC_LBRC,/*| */ KC_LPRN,/*      | */ KC_LT,/*  | */ KC_GT,/*           | */ KC_RPRN,/*| */ KC_RBRC,/*         | */ KC_RCBR,/* | */ KC_ENTER,/*| */
-    KC_EQL,/*   | */ KC_PLUS,/*| */ KC_MINS,/*| */ KC_SCLN,/*      | */ KC_PIPE,/*| */ KC_BSLS,/*         | */ KC_COLN,/*| */ TD(DANCE_QUOTES),/*| */ KC_GRAVE,/*| */ KC_SLASH,/*| */
-    /*          | */ /*        | */ /*        | */ OSM(MOD_LSFT),/*| */ TO(0),/*  | */ TD(DANCE_LAYERS2),/*| */ KC_RGUI/* | */ /*                 | */ /*         | *//*          | */
+    KC_ESCAPE,/*| */ KC_AT,/*  | */ KC_HASH,/*| */ TD(DANCE_31),/*| */ KC_PERC,/*| */ KC_CIRC,/*| */ KC_AMPR,/*     | */ KC_ASTR,/*         | */ KC_UNDS,/*| */ KC_BSPC,/* | */
+    KC_TAB,/*   | */ KC_LCBR,/*| */ KC_LBRC,/*| */ KC_LPRN,/*     | */ KC_LT,/*  | */ KC_GT,/*  | */ KC_RPRN,/*     | */ KC_RBRC,/*         | */ KC_RCBR,/*| */ KC_ENTER,/*| */
+    KC_GRAVE,/* | */ KC_PLUS,/*| */ KC_MINS,/*| */ KC_SCLN,/*     | */ KC_PIPE,/*| */ KC_BSLS,/*| */ KC_COLN,/*     | */ TD(DANCE_QUOTES),/*| */ KC_EQL,/* | */ KC_SLASH,/*| */
+    /*          | */ /*        | */ /*        | */ TO(3),/*       | */ TO(0),/*  | */ TO(2),/*  | */ OSM(MOD_RGUI)/*| */ /*                 | */ /*        | *//*          | */
   ),
 
   [2] = LAYOUT(
-    KC_ESCAPE,/*| */ KC_MEDIA_PLAY_PAUSE,/*| */ KC_AUDIO_MUTE,/*    | */ KC_KP_ASTERISK, /*| */ KC_UNDS,/*           | */ KC_MINS,/*| */ KC_7,/*  | */ KC_8,/*| */ KC_9,/*| */ KC_BSPC,/* | */
-    KC_TAB,/*   | */ KC_MEDIA_NEXT_TRACK,/*| */ KC_AUDIO_VOL_UP,/*  | */ KC_PLUS,/*        | */ KC_BRIGHTNESS_UP,/*  | */ KC_EQL,/* | */ KC_4,/*  | */ KC_5,/*| */ KC_6,/*| */ KC_ENTER,/*| */
-    RESET,/*    | */ KC_MEDIA_PREV_TRACK,/*| */ KC_AUDIO_VOL_DOWN,/*| */ KC_DOT,/*         | */ KC_BRIGHTNESS_DOWN,/*| */ KC_0,/*   | */ KC_1,/*  | */ KC_2,/*| */ KC_3,/*| */ TO(3),/*   | */
-    /*          | */ /*                    | */ /*                  | */ OSM(MOD_LSFT),/*  | */ TO(0),/*             | */ TO(1),/*  | */ KC_RGUI/*| */ /*     | */ /*     | */ /*         | */
+    KC_ESCAPE,/*      | */ KC_MEDIA_PLAY_PAUSE,/*| */ KC_AUDIO_MUTE,/*    | */ KC_KP_ASTERISK, /*| */ KC_R,/*              | */ KC_MINS,/*| */ KC_7,/*  | */ KC_8,/*| */ KC_9,/*| */ KC_BSPC,/* | */
+    KC_TAB,/*         | */ KC_MEDIA_NEXT_TRACK,/*| */ KC_AUDIO_VOL_UP,/*  | */ KC_PLUS,/*        | */ KC_BRIGHTNESS_UP,/*  | */ KC_EQL,/* | */ KC_4,/*  | */ KC_5,/*| */ KC_6,/*| */ KC_ENTER,/*| */
+    TD(DANCE_RESET),/*| */ KC_MEDIA_PREV_TRACK,/*| */ KC_AUDIO_VOL_DOWN,/*| */ KC_DOT,/*         | */ KC_BRIGHTNESS_DOWN,/*| */ KC_0,/*   | */ KC_1,/*  | */ KC_2,/*| */ KC_3,/*| */ TO(3),/*   | */
+    /*                | */ /*                    | */ /*                  | */ OSM(MOD_LSFT),/*  | */ TO(0),/*             | */ TO(1),/*  | */ KC_RGUI/*| */ /*     | */ /*     | */ /*         | */
   ),
 
   [3] = LAYOUT(
     TD(DANCE_54),/* | */ KC_MS_WH_RIGHT,/*| */ KC_MS_UP,/*          | */ KC_MS_WH_LEFT,/* | */ KC_MS_WH_UP,/*  | */ LGUI(KC_LBRACKET),/*| */ LCTL(LSFT(KC_TAB)),/*  | */ RCTL(KC_TAB),/*      | */ LGUI(KC_RBRACKET),/*| */ KC_BSPC,/*     | */
     KC_TAB,/*       | */ KC_MS_LEFT,/*    | */ KC_MS_DOWN,/*        | */ KC_MS_RIGHT,/*   | */ KC_MS_WH_DOWN,/*| */ TD(DANCE_60),/*     | */ MT(MOD_RGUI,KC_DOWN),/*| */ MT(MOD_RALT,KC_UP),/*| */ TD(DANCE_63),/*     | */ KC_ENTER,/*    | */
-    TD(DANCE_58) ,/*| */ LGUI(KC_Z),/*    | */ TD(DANCE_CUT_COPY),/*| */ LGUI(KC_V),/*    | */ KC_MS_BTN2,/*   | */ TD(DANCE_55),/*     | */ KC_MS_BTN1,/*          | */ KC_MS_ACCEL0,/*      | */ KC_MS_ACCEL1,/*     | */ KC_MS_ACCEL2,/*| */
+    TD(DANCE_58) ,/*| */ LGUI(KC_Z),/*    | */ TD(DANCE_CUT_COPY),/*| */ LGUI(KC_V),/*    | */ TD(DANCE_55),/* | */ KC_MS_BTN2,/*       | */ KC_MS_BTN1,/*          | */ KC_MS_ACCEL0,/*      | */ KC_MS_ACCEL1,/*     | */ KC_MS_ACCEL2,/*| */
     /*              | */ /*               | */ /*                   | */  OSM(MOD_LSFT),/*| */ TO(0),/*        | */ TO(1),/*            | */ KC_RCTL/*              | */ /*                   | */ /*                  | */ /*             | */
   )
 };
@@ -60,6 +61,8 @@ enum combos {
   C_D_RPRN,
   F_P_Z,
   U_Y_DEL,
+  H_D_ENTER,
+  H_C_TAB,
 };
 
 const uint16_t PROGMEM w_f_q[] = { KC_W, KC_F, COMBO_END};
@@ -67,6 +70,8 @@ const uint16_t PROGMEM x_c_lprn[] = { KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM c_d_rprn[] = { KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM f_p_z[] = { KC_F, KC_P, COMBO_END};
 const uint16_t PROGMEM u_y_del[] = { KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM h_d_enter[] = { KC_H, KC_D, COMBO_END};
+const uint16_t PROGMEM h_c_tab[] = { KC_H, KC_C, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [W_F_Q] = COMBO(w_f_q, KC_Q),
@@ -74,6 +79,8 @@ combo_t key_combos[COMBO_COUNT] = {
   [C_D_RPRN] = COMBO(c_d_rprn, KC_RPRN),
   [F_P_Z] = COMBO(f_p_z, KC_Z),
   [U_Y_DEL] = COMBO(u_y_del, KC_DEL),
+  [H_D_ENTER] = COMBO(h_d_enter, KC_ENTER),
+  [H_C_TAB] = COMBO(h_c_tab, KC_TAB),
 };
 // COMBOS ---
 
@@ -123,8 +130,8 @@ void dance_layers_finished(qk_tap_dance_state_t *state, void *user_data) {
     switch (dance_state[0].step) {
         case SINGLE_TAP: layer_move(1); break;
         case SINGLE_HOLD: layer_on(1); break;
-        case DOUBLE_TAP: layer_move(3); break;
-        case DOUBLE_HOLD: layer_on(3); break;
+        case DOUBLE_TAP: layer_move(2); break;
+        case DOUBLE_HOLD: layer_on(2); break;
         case DOUBLE_SINGLE_TAP: layer_move(1); break;
     }
 }
@@ -132,7 +139,7 @@ void dance_layers_reset(qk_tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
     switch (dance_state[0].step) {
         case SINGLE_HOLD: layer_off(1); break;
-        case DOUBLE_HOLD: layer_off(3); break;
+        case DOUBLE_HOLD: layer_off(2); break;
     }
     dance_state[0].step = 0;
 }
@@ -815,4 +822,5 @@ qk_tap_dance_action_t tap_dance_actions[] = {
         [DANCE_LAYERS2] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_layers2_finished, dance_layers2_reset),
         [DANCE_ACCEL]= ACTION_TAP_DANCE_DOUBLE(KC_MS_ACCEL0, KC_MS_ACCEL1),
         [DANCE_CUT_COPY] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_cut_copy, dance_cut_copy_finished, dance_cut_copy_reset),
-};
+        [DANCE_RESET] = ACTION_TAP_DANCE_DOUBLE(KC_NO, RESET)
+}
